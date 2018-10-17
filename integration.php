@@ -394,6 +394,9 @@ class WPAI_WPJM_Field_Editor_Integration {
 		if( $this->import()->can_update_meta( $meta_key, $this->import_options ) ){
 
 			$this->log( "{$wpjmfe} {$updating_creating} {$meta_key} {$with_value_of} {$value}" );
+
+			// Maybe unserialize before updating to make sure we don't serialize already serialized data
+			$value = maybe_unserialize( $value );
 			$result = update_post_meta( $this->post_id, $meta_key, $value );
 
 			// Numeric means meta was created, true means it was updated
