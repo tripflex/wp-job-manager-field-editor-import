@@ -32,6 +32,12 @@ class WPAI_WPJM_Field_Editor {
 	 * WPAI_WPJM_Field_Editor constructor.
 	 */
 	function __construct() {
+
+		if ( ! $this->has_fe() ) {
+			add_action( 'admin_notices', array( $this, 'fe_missing' ) );
+			return;
+		}
+
 		include( 'rapid-addon.php' );
 
 		require_once( 'integration.php' );
@@ -40,6 +46,21 @@ class WPAI_WPJM_Field_Editor {
 
 		$this->jobs = new WPAI_WPJM_Field_Editor_Integration_Jobs( $this );
 		$this->resumes = new WPAI_WPJM_Field_Editor_Integration_Resumes( $this );
+	}
+
+	/**
+	 * Field Editor missing Admin Notice
+	 *
+	 *
+	 * @since @@version
+	 *
+	 */
+	function fe_missing(){
+		?>
+			<div class="notice notice-error is-dismissible">
+				<p><?php printf( __( '%s must be installed and activated for WP All Import integration support.' ),'<a href="https://plugins.smyl.es/wp-job-manager-field-editor/" target="_blank">WP Job Manager Field Editor</a>' ); ?></p>
+			</div>
+		<?php
 	}
 
 	/**
@@ -67,6 +88,19 @@ class WPAI_WPJM_Field_Editor {
 			self::$instance = new self();
 		}
 		return self::$instance;
+	}
+
+	/**
+	 * Check if Field Editor exists and has been loaded
+	 *
+	 *
+	 * @since @@version
+	 *
+	 * @return bool
+	 */
+	public function has_fe() {
+		// Should already be defined on instance load (ran when loading plugins)
+		return defined( 'WPJM_FIELD_EDITOR_VERSION' );
 	}
 }
 

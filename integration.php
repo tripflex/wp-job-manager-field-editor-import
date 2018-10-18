@@ -65,6 +65,8 @@ class WPAI_WPJM_Field_Editor_Integration {
 
 	/**
 	 * WPAI_WPJM_Field_Editor_Integration constructor.
+	 *
+	 * @param $core \WPAI_WPJM_Field_Editor
 	 */
 	public function __construct( $core ) {
 		$this->core = $core;
@@ -426,19 +428,6 @@ class WPAI_WPJM_Field_Editor_Integration {
 	 */
 	public function log( $message ){
 		$this->import->log( $message );
-	}
-
-	/**
-	 * Check if Field Editor exists and has been loaded
-	 *
-	 *
-	 * @since @@version
-	 *
-	 * @return bool
-	 */
-	public function has_fe(){
-		// Should already be defined on instance load (ran when loading plugins)
-		return defined( 'WPJM_FIELD_EDITOR_VERSION' );
 	}
 
 	/**
