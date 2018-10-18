@@ -4,7 +4,7 @@ Donate link: https://plugins.smyl.es/
 Tags: job manager, job listing, job board, field editor, import, wp all import, wp job manager field editor, field import, wp job manager field editor import
 Requires at least: 4.7.0
 Tested up to: 4.9
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -70,6 +70,10 @@ No! That's the best part! This addon allows you to import those custom meta fiel
 2. Example of support for multi-file field types
 
 == Changelog ==
+
+= 1.0.1 =
+**October 18, 2018**
+- Make sure to check for Field Editor before init to prevent 500 error
 
 = 1.0.0 =
 **October 17, 2018**
