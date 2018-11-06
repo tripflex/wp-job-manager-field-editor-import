@@ -1,10 +1,10 @@
-=== WP Job Manager Field Editor - WP All Import Addon ===
+=== WP All Import - WP Job Manager Field Editor Add-On ===
 Contributors: tripflex
 Donate link: https://plugins.smyl.es/
-Tags: job manager, job listing, job board, field editor, import, wp all import, wp job manager field editor, field import, wp job manager field editor import
+Tags: wp job manager, import listings, import job listings, import directory, job directory, import job directory, wp job manager, import wp job manager, import wp job manager listings, import job board, job board, field editor, import, wp all import, wp job manager field editor, field import, wp job manager field editor import, smyles, smyles plugins
 Requires at least: 4.7.0
 Tested up to: 4.9
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -25,6 +25,7 @@ Using this along with the WP Job Manager addon for WP All Import will make impor
 * Supports multiple file upload field types (through WP All Import search/download)
 * Fully documented and clean codebase
 * Support for Jobs and Resumes
+* Automagically guess template field (by clicking down arrow)
 
 = Documentation =
 
@@ -70,6 +71,10 @@ No! That's the best part! This addon allows you to import those custom meta fiel
 2. Example of support for multi-file field types
 
 == Changelog ==
+
+= 1.0.2 =
+**November 6, 2018**
+- Added screenshots, prep for release on WordPress plugin repository (svn)
 
 = 1.0.1 =
 **October 18, 2018**
