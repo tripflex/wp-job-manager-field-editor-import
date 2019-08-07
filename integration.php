@@ -196,7 +196,7 @@ class WPAI_WPJM_Field_Editor_Integration {
 			$type     = $this->ene( 'type', $field, true, 'text' );
 			$tooltip  = $this->ene( 'description', $field, true );
 			$meta_key = $this->ene( 'meta_key', $field, true, $key );
-			$label    = $field['label'];
+			$label    = wp_strip_all_tags( $field['label'] );
 			$options  = null; $is_html = true; $default = ''; $skip = false;
 			$_meta_key = "_{$meta_key}";
 
