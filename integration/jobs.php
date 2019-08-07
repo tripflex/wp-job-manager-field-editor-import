@@ -32,6 +32,7 @@ class WPAI_WPJM_Field_Editor_Integration_Jobs extends WPAI_WPJM_Field_Editor_Int
 	 */
 	public function construct(){
 		$this->label = __( 'Jobs' );
+		$this->import()->set_post_type_image( 'job_listing', WPJM_FIELD_EDITOR_IMPORT_PLUGIN_URL . '/assets/wp_job_manager.png' );
 	}
 
 	/**

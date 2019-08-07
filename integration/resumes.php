@@ -32,6 +32,7 @@ class WPAI_WPJM_Field_Editor_Integration_Resumes extends WPAI_WPJM_Field_Editor_
 	 */
 	public function construct(){
 		$this->label = __( 'Resumes' );
+		$this->import()->set_post_type_image( 'resume', WPJM_FIELD_EDITOR_IMPORT_PLUGIN_URL . '/assets/wp_job_manager.png' );
 	}
 
 	/**
