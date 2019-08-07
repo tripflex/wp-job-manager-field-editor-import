@@ -29,7 +29,28 @@ Using this along with the WP Job Manager addon for WP All Import will make impor
 
 = Documentation =
 
+= Helper Functions =
+Two helper functions are available while setting up your imports:
 
+* `field_editor_import_multi_files( files )` - Helper function to convert serialized array values for files to CSV format
+
+Example:
+`[field_editor_import_multi_files({_some_meta_key[1]})]`
+
+
+* `field_editor_import_multi_field( data, separator )` - Helper function to convert non-serialized data (in CSV or other format with specific separator), to serialized data format required for multi value field types.
+
+Example (data separated with comma): `One, Two, Three`
+and the XPath value was `{numbers[1]}`, instead of just putting `{numbers[1]}`, you would put in this:
+`[field_editor_import_multi_field({numbers[1]})]`
+
+If you're using a different separator, for example: `One|Two|Three`, you can specify the separator as the second argument:
+`[field_editor_import_multi_field({numbers[1]}, "|")]`
+
+Example:
+`[field_editor_import_multi_files({_some_meta_key[1]})]`
+
+http://www.wpallimport.com/documentation/advanced/execute-php/
 
 = Contributing and reporting bugs =
 
@@ -38,7 +59,6 @@ You can contribute code or report issues with this plugin via GitHub: [https://g
 = Support =
 
 Use the WordPress.org forums for community support where we try to help all users. If you spot a bug, you can log it (or fix it) on [Github](https://github.com/tripflex/wp-job-manager-field-editor-import) where we can act upon them more efficiently.
-
 
 == Installation ==
 
@@ -65,6 +85,16 @@ Once installed, head over to WP All Import to begin an import, and you will auto
 = Do I need the Pro version of WP All Import? =
 No! That's the best part! This addon allows you to import those custom meta fields without having the Pro version!
 
+= How do I import multiple field type values that are not serialized? =
+As of version 1.0.3, a helper function is available for this, `field_editor_import_multi_field`.
+
+For example, if the data in your field is separated by a comma: `One, Two, Three`
+and the XPath value was `{numbers[1]}`, instead of just putting `{numbers[1]}`, you would put in this:
+`[field_editor_import_multi_field({numbers[1]})]`
+
+If you're using a different separator, for example: `One|Two|Three`, you can specify the separator as the second argument:
+`[field_editor_import_multi_field({numbers[1]}, "|")]`
+
 == Screenshots ==
 
 1. Example showing custom fields for Job Import
@@ -74,11 +104,13 @@ No! That's the best part! This addon allows you to import those custom meta fiel
 
 = 1.0.3 =
 **TBD**
+- Added `field_editor_import_multi_field` helper function and details to FAQ on how to use
 - Fixed listing meta not being updated when only "create new listings" is selected
 - Fixed JS error when selecting element if node as special characters in value
 - Added WPJM logo/image to post type dropdown selector
 - Added 'checklist' Field Editor field type support
 - Updated RapidAddon to 1.1.1
+- Strip all HTML from labels
 
 = 1.0.2 =
 **November 6, 2018**

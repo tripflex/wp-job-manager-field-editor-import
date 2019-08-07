@@ -129,4 +129,22 @@ if( ! function_exists( 'field_editor_import_multi_files' ) ){
 	}
 }
 
+if( ! function_exists( 'field_editor_import_multi_field' ) ){
+	/**
+	 * WP All Import helper Function for Converting Data to Serialized Format
+	 *
+	 *
+	 * @param string $data
+	 * @param string $separator
+	 *
+	 * @return string
+	 * @since 1.0.3
+	 *
+	 */
+	function field_editor_import_multi_field( $data = '', $separator = ',' ){
+		$a_data = explode( $separator, $data );
+		return ! empty( $a_data ) ? maybe_serialize( $a_data ) : '';
+	}
+}
+
 add_action( 'plugins_loaded', 'WPAI_WPJM_Field_Editor::get_instance' );
