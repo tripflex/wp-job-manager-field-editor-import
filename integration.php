@@ -238,6 +238,14 @@ class WPAI_WPJM_Field_Editor_Integration {
 			if ( ! $skip ) {
 
 				$maybe_populate_html = empty( $options ) ? "<span data-metakey='{$_meta_key}' class='fetrypopulate dashicons dashicons-arrow-down-alt2' title='" . __( 'Guess template and try to populate' ) . "'></span>" : '';
+				if( ! empty( $options ) ){
+					$encoded_options = array();
+					foreach( (array) $options as $opt_key => $opt_val ){
+						$encoded_key = htmlentities( $opt_key, ENT_QUOTES );
+						$encoded_options[ $encoded_key ] = htmlentities( $opt_val, ENT_QUOTES );
+					}
+					$options = $encoded_options;
+				}
 
 				$label = "{$label} (<small>{$meta_key}</small>):  {$maybe_populate_html}";
 				$this->import()->add_field( $_meta_key, $label, $type, $options, $tooltip, $is_html, $default );
@@ -270,7 +278,7 @@ class WPAI_WPJM_Field_Editor_Integration {
 						console.log( found_node );
 
 						if( found_node ){
-							var input = $( '#wpjm_fe_addon_<?php echo $this->slug; ?>' + _metakey );
+							var input = $( 'div[id$="wpjm_fe_addon_<?php echo $this->slug; ?>' + _metakey + '"]' );
 							if( input ){
 								input.val( "{" + maybe_template + "}" );
 							}
@@ -392,8 +400,10 @@ class WPAI_WPJM_Field_Editor_Integration {
 		$updating_creating = __( 'Updating/Creating' );
 		$wpjmfe = '<strong>WP Job Manager Field Editor:</strong>';
 
-		// $this->import()->can_update_image( $import_options )
-		if( $this->import()->can_update_meta( $meta_key, $this->import_options ) ){
+		$import_options = $this->import_options['options'];
+		$is_new_listing = isset( $import_options['wizard_type'] ) && $import_options['wizard_type'] === 'new';
+
+		if ( $is_new_listing || $this->import()->can_update_meta( $meta_key, $this->import_options ) ) {
 
 			$this->log( "{$wpjmfe} {$updating_creating} {$meta_key} {$with_value_of} {$value}" );
 
