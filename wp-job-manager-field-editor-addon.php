@@ -3,11 +3,11 @@
  * Plugin Name: WP All Import - WP Job Manager Field Editor Add-On
  * Plugin URI: https://github.com/tripflex/wp-job-manager-field-editor-import
  * Description: Support importing listings in WP Job Manager, with support for WP Job Manager Field Editor custom fields
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      Myles McNamara
  * Author URI:  http://plugins.smyl.es
  * Requires at least: 4.7
- * Tested up to: 4.9.8
+ * Tested up to: 5.2.2
  * Domain Path: /languages
  * Text Domain: smyles-wp-job-manager-field-editor-import
  * Last Updated: @@timestamp
@@ -36,6 +36,13 @@ class WPAI_WPJM_Field_Editor {
 		if ( ! $this->has_fe() ) {
 			add_action( 'admin_notices', array( $this, 'fe_missing' ) );
 			return;
+		}
+
+		if ( ! defined( 'WPJM_FIELD_EDITOR_IMPORT_PLUGIN_DIR' ) ) {
+			define( 'WPJM_FIELD_EDITOR_IMPORT_PLUGIN_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+		}
+		if ( ! defined( 'WPJM_FIELD_EDITOR_IMPORT_PLUGIN_URL' ) ) {
+			define( 'WPJM_FIELD_EDITOR_IMPORT_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 		}
 
 		include( 'rapid-addon.php' );

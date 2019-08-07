@@ -213,6 +213,7 @@ class WPAI_WPJM_Field_Editor_Integration {
 					break;
 				case 'select':
 				case 'radio':
+				case 'checklist':
 				case 'multiselect':
 					$type = 'radio';
 					$options = $field['options'];

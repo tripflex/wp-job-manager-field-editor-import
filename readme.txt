@@ -3,8 +3,8 @@ Contributors: tripflex
 Donate link: https://plugins.smyl.es/
 Tags: wp job manager, import listings, import job listings, import directory, job directory, import job directory, wp job manager, import wp job manager, import wp job manager listings, import job board, job board, field editor, import, wp all import, wp job manager field editor, field import, wp job manager field editor import, smyles, smyles plugins
 Requires at least: 4.7.0
-Tested up to: 4.9.8
-Stable tag: 1.0.2
+Tested up to: 5.2.2
+Stable tag: 1.0.3
 Requires PHP: 5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -71,6 +71,14 @@ No! That's the best part! This addon allows you to import those custom meta fiel
 2. Example of support for multi-file field types
 
 == Changelog ==
+
+= 1.0.3 =
+**TBD**
+- Fixed listing meta not being updated when only "create new listings" is selected
+- Fixed JS error when selecting element if node as special characters in value
+- Added WPJM logo/image to post type dropdown selector
+- Added 'checklist' Field Editor field type support
+- Updated RapidAddon to 1.1.1
 
 = 1.0.2 =
 **November 6, 2018**
