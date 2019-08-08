@@ -103,7 +103,7 @@ If you're using a different separator, for example: `One|Two|Three`, you can spe
 == Changelog ==
 
 = 1.0.3 =
-**TBD**
+**August 8, 2019**
 - Added `field_editor_import_multi_field` helper function and details to FAQ on how to use
 - Fixed listing meta not being updated when only "create new listings" is selected
 - Fixed JS error when selecting element if node as special characters in value
