@@ -406,6 +406,23 @@ class WPAI_WPJM_Field_Editor_Integration {
 
 		if ( $is_new_listing || $this->import()->can_update_meta( $meta_key, $this->import_options ) ) {
 
+			/**
+			 * Handle single file field uploads, by first checking for value in `image_url_or_path` key in array,
+			 * or if only attachment ID is specified use that to return the full URL to file.  If for some reason
+			 * none of those methods return a URL, set the meta value to empty string.
+			 */
+			if( is_array( $value ) && isset( $value['attachment_id'] ) ){
+
+				$file_url = false;
+				if( isset( $value['image_url_or_path'] ) && ! empty( $value['image_url_or_path'] ) ){
+					$file_url = $value['image_url_or_path'];
+				} elseif( isset( $value['attachment_id'] ) && ! empty( $value['image_url_or_path'] ) ){
+					$file_url = wp_get_attachment_url( $value['image_url_or_path'] );
+				}
+
+				$value = ! empty( $file_url ) ? $file_url : '';
+			}
+
 			$this->log( "{$wpjmfe} {$updating_creating} {$meta_key} {$with_value_of} {$value}" );
 
 			// Maybe unserialize before updating to make sure we don't serialize already serialized data
