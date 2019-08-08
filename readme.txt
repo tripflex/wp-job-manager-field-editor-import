@@ -107,6 +107,7 @@ If you're using a different separator, for example: `One|Two|Three`, you can spe
 - Added `field_editor_import_multi_field` helper function and details to FAQ on how to use
 - Fixed listing meta not being updated when only "create new listings" is selected
 - Fixed JS error when selecting element if node as special characters in value
+- Fixed single file upload field issues (value being saved as serialized array data)
 - Added WPJM logo/image to post type dropdown selector
 - Added 'checklist' Field Editor field type support
 - Updated RapidAddon to 1.1.1
